@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td style="padding-right: 100px;">Amount</td>
+            <td style="padding-right: 100px;">From Currency</td>
+            <td style="padding-right: 100px;">To Currency</td>
+        </tr>
+    </table>
+    <form>
+        <input type="number" id="number" style="width: 100px" onchange="change()">
+        <select name="country" id="country" style="margin-left: 20px; width: 150px;">
+            <option value="VN">Việt Nam</option>
+        </select>
+        <select name="country" id="country" style="margin-left: 30px; width: 150px;">
+            <option value="USD">USD</option>
+        </select>
+        <input type="button" onclick="myclick()" value="Convert">
+        <p style="color: blue;">Result $ :<span id="Result"></span></p>
+    </form>
+    <script>
+        function change(){
+            let a=document.getElementById('number').value;
+            a=parseFloat(a);
+            // console.log(typeof(a));
+            return a;
+            
+        }
+        function myclick(){
+            let b= change();
+            let result= b/23000;
+            console.log (result);
+            document.getElementById('Result').innerHTML=result;
+        }
+    </script>
+</body>
+</html>
