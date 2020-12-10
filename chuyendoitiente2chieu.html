@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td style="padding-right: 100px;">Amount</td>
+            <td style="padding-right: 100px;">From Currency</td>
+            <td style="padding-right: 100px;">To Currency</td>
+        </tr>
+    </table>
+    <form>
+        <input type="number" id="number" style="width: 100px" onchange="change()">
+        <select name="country" id="country1" style="margin-left: 20px; width: 150px;">
+            <option value="VN">Việt Nam</option>
+            <option value="USD">USD</option>
+        </select>
+        <select name="country" id="country2" style="margin-left: 30px; width: 150px;">
+            <option value="USD">USD</option>
+            <option value="VN">Việt Nam</option>
+        </select>
+        <input type="button" onclick="myclick()" value="Convert">
+        <p style="color: blue;">Result $ :<span id="Result"></span></p>
+    </form>
+    <script>
+        function change() {
+            let a = document.getElementById('number').value;
+            a = parseFloat(a);
+            return a;
+
+        }
+        function selectA() {
+            let b = document.getElementById('country1').value;
+
+            return b;
+
+        }
+        function selectB() {
+            let c = document.getElementById('country2').value;
+
+            return c;
+        }
+        function myclick() {
+            let select1 = selectA();
+            let select2 = selectB();
+
+
+            let d = change();
+            d = parseFloat(d);
+            let result;
+            if (select1 == "VN") {
+                if (select2 == "USD") {
+                    result = (d / 23000);
+                } else result = d;
+            } else {
+                if (select2 == "VN") {
+                    result = (d * 23000);
+                }
+                else {
+                    result = d;
+                }
+            }
+            document.getElementById('Result').innerHTML= result;
+        }
+
+    </script>
+</body>
+
+</html>
